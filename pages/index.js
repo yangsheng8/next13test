@@ -59,7 +59,7 @@ export default function Home() {
           </div>
         </div>
    <div> 
-          <button onClick={handleClick}>Click to create a GIF</button>
+          <button className={styles.btnLarge} onClick={handleClick}>Click to create a GIF</button>
       {progress > 0 && <p>Creating GIF... {progress}%</p>}
       {gifSrc && (
         <>

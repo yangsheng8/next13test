@@ -202,6 +202,24 @@
   }
 }
 
+/* styles.css */
+.btnLarge {
+  background: linear-gradient(to right, #ec4899, #facc15); /* 渐变背景色 */
+  color: white; /* 字体颜色 */
+  font-weight: bold; /* 字体加粗 */
+  padding: 1rem 2.5rem; /* 上下左右内边距 */
+  border-radius: 9999px; /* 圆角 */
+  font-size: 2rem; /* 字体大小 */
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1); /* 阴影 */
+  transition: transform 0.2s ease, background 0.2s ease; /* 动效 */
+}
+
+.btnLarge:hover {
+  background: linear-gradient(to right, #facc15, #ec4899); /* 悬停渐变反转 */
+  transform: scale(1.05); /* 悬停放大 */
+}
+
+
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
@@ -227,3 +245,5 @@
     transform: rotate(0deg);
   }
 }
+
+
