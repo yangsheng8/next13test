@@ -3,10 +3,18 @@ import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import { useState } from 'react';
 import { createGIF } from 'gifshot';
+import TodoList from '../components/TodoList';
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const [todos, setTodos] = useState([]);
+
+    const handleTodoAdded = (newTodo) => {
+        setTodos((prevTodos) => [...prevTodos, newTodo]);
+    };
+
    // 定义 progress 状态
    const [progress, setProgress] = useState(0);
    const [gifSrc, setGifSrc] = useState(null);
@@ -49,16 +57,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div>
+            <h1>My Todo App</h1>
+            <TodoList todos={todos} />
+        </div>    
       <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>pages/index.js</code>
-          </p>
-          <div>
-          </div>
-        </div>
-   <div> 
+      <div> 
           <button className={styles.btnLarge} onClick={handleClick}>Click to create a GIF</button>
       {progress > 0 && <p>Creating GIF... {progress}%</p>}
       {gifSrc && (
@@ -68,6 +72,7 @@ export default function Home() {
         </>
       )}
           </div>
+ 
       </main>
     </>
   )
